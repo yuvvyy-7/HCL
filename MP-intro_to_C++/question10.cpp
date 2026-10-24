@@ -6,23 +6,23 @@
 using namespace std;
 
 class Box {
-    private:
-        double height;
-        double width;
-    public:
-        static int count;
+private:
+    double height;
+    double width;
+public:
+    static int count;
 
-        Box(double h, double w) {
-            width = w;
-            height = h;
-            count++;
-        }
+    Box(double h, double w) {
+        width = w;
+        height = h;
+        count++;
+    }
 
-        ~Box() {
-            count--;
-        }
+    ~Box() {
+        count--;
+    }
 
-        friend void compareVolume(Box b1, Box b2);
+    friend void compareVolume(Box b1, Box b2);
 };
 
 int Box::count = 0;

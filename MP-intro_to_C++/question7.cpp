@@ -7,49 +7,49 @@
 using namespace std;
 
 class BankAccount {
-    private:
-        long long accountNumber;
-        long long balance = 0;
-    public:
-        void setAccountNumber(long long accNum) {
-            accountNumber = accNum;
+private:
+    long long accountNumber;
+    long long balance = 0;
+public:
+    void setAccountNumber(long long accNum) {
+        accountNumber = accNum;
+    }
+
+    long long getBalance() const {
+        return balance;
+    }
+
+    long long getAccountNumber() const {
+        return accountNumber;
+    }
+
+    void deposit(int amount) {
+        if(amount >= 0) {
+            balance += amount;
+            cout << "Amount Deposited \n";
+        }    
+        else {
+            cout << "Invalid Entry \n";
         }
 
-        long long getBalance() const {
-            return balance;
-        }
+        
+    }
 
-        long long getAccountNumber() const {
-            return accountNumber;
+    void withdraw(int amount) {
+        if(balance >= amount) {
+            balance -= amount;
+            cout << "Amount Withdrawn \n";
+        } else {
+            cout << "Insufficient Balance\n";
         }
+    }
 
-        void deposit(int amount) {
-            if(amount >= 0) {
-                balance += amount;
-                cout << "Amount Deposited \n";
-            }    
-            else {
-                cout << "Invalid Entry \n";
-            }
-
-            
-        }
-
-        void withdraw(int amount) {
-            if(balance >= amount) {
-                balance -= amount;
-                cout << "Amount Withdrawn \n";
-            } else {
-                cout << "Insufficient Balance\n";
-            }
-        }
-
-        void display() {
-            cout << "\n==============================\n";
-            cout << "Account Number: " << accountNumber << endl;
-            cout << "Bank Balance: " << balance << endl;
-            cout << "==============================\n";
-        }
+    void display() {
+        cout << "\n==============================\n";
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Bank Balance: " << balance << endl;
+        cout << "==============================\n";
+    }
 };
 
 int main() {

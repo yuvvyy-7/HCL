@@ -14,15 +14,20 @@ class Person {
 };
 
 class Employee : public Person {
-    public:
-        string employeeId;
-        double salary;
+private:
+    int employeeId;
+    double salary;
+public: 
+    Employee(string n, int a, int id, double s) : Person(n, a), employeeId(id), salary(s) {}
+
+    void display() const {
+        cout << name << ", " << age << ", " << employeeId << ", " << salary << endl;
+    }
 };
 
 int main() {
-
-
-
+    Employee e("yuvraj", 19, 101, 100000);
+    e.display();
 
 return 0;
 }

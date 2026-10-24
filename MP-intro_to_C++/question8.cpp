@@ -7,14 +7,14 @@
 using namespace std;
 
 class Demo {
-    public:
-        Demo() {
-            cout << "Constructor used.\n";
-        } 
+public:
+    Demo() {
+        cout << "Constructor used.\n";
+    } 
 
-        ~Demo() {
-            cout << "Destructor used.";
-        }
+    ~Demo() {
+        cout << "Destructor used.";
+    }
 };
 
 int main() {

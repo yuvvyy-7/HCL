@@ -6,18 +6,18 @@
 using namespace std;
 
 class DynamicArray {
-    public:
-        int* arr;
+public:
+    int* arr;
 
-    DynamicArray() {
-        arr = new int[5];
-        cout << "Array memory created on the heap!\n";
-    }
+DynamicArray() {
+    arr = new int[5];
+    cout << "Array memory created on the heap!\n";
+}
 
-    ~DynamicArray() {
-        delete[] arr;
-        cout << "Array memory cleaned up safely!\n";
-    }
+~DynamicArray() {
+    delete[] arr;
+    cout << "Array memory cleaned up safely!\n";
+}
 };
 
 int main() {
