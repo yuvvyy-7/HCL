@@ -26,10 +26,16 @@ public:
             cout << "[Copy Constructor] Copied student from: " << other.name << endl;
     }
 
+    ~Student() {
+        cout << "\nClass: " << name << " destructed" << endl;
+    }
+
     void display() {
+        cout << "\n";
         cout << "Roll No: " << rollNo << endl;
         cout << "Name: " << name << endl;
         cout << "Marks: " << marks << endl;
+        cout << "\n";
     }
 };
 
@@ -48,5 +54,23 @@ int main() {
     student4.display();
 
 
+    //using heap memory insread of stack
+    Student* student5 = new Student("Megh", 3, 89);
+    student5->display();
+    
+    delete student5;
+
+    //making array in heap memory
+    int size = 2;
+    Student* studentGang = new Student[size];
+
+    studentGang[0] = Student("boy1", 4, 29);
+    studentGang[1] = Student("boy2", 5, 30);
+
+    for(int i = 0; i < size; i++) {
+    studentGang[i].display();
+}
+
+    delete[] studentGang;
 return 0;
 }
