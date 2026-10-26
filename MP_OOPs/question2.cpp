@@ -1,4 +1,4 @@
-// Q.2.Create a base class Person (with name and age) and a derived class Employee (adding
+//Q.2.Create a base class Person (with name and age) and a derived class Employee (adding
 // employeeId and salary). Demonstrate how protected data members and base
 // constructor initializers work in derived classes.
 

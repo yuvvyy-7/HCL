@@ -72,5 +72,6 @@ int main() {
 }
 
     delete[] studentGang;
+    studentGang = nullptr;
 return 0;
 }

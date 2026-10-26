@@ -1,4 +1,4 @@
-// Create a base class Shape with a virtual function draw(). Derive classes Circle and
+//Q.3. Create a base class Shape with a virtual function draw(). Derive classes Circle and
 // Rectangle that override draw(). Demonstrate run-time polymorphism by iterating over an
 // array of Shape* pointers and invoking draw().
 

@@ -1,6 +1,7 @@
-// Design a pure abstract interface Serializable containing a pure virtual function virtual
+//Q.4. Design a pure abstract interface Serializable containing a pure virtual function virtual
 // std::string serialize() const = 0;. Implement this interface across two distinct classes:
 // User and Product.
+
 #include <iostream>
 #include <string>
 using namespace std;
