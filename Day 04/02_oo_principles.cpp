@@ -5,6 +5,7 @@
  *   1. Encapsulation:
  *      - Internal representation (course vector, raw grades, credit weights)
  *        is hidden inside private scope, protecting it from external tampering.
+ * 
  *   2. Abstraction:
  *      - Exposes clean, high-level interfaces (addCourse, getGPA, printTranscript).
  *      - The caller does not need to know the mathematical formula for credit-weighted
@@ -30,6 +31,13 @@ struct CourseRecord {
     double gradePoint; // 0.0 to 4.0 scale (e.g., 4.0 = A, 3.0 = B)
 };
 
+struct Certificates {
+    string courseName;
+    int courseHours;
+    string courseProvider;
+    string courseLevel;
+};
+
 // 2. ENCAPSULATION & ABSTRACTION: Student Class
 
 class Student {
@@ -37,7 +45,9 @@ private:
     // Encapsulated private attributes
     string name;
     int rollNo;
+    string certLevel;
     vector<CourseRecord> enrolledCourses;
+    vector<Certificates> certifications;
 
     // Private helper method: Abstraction hides the internal formula from callers
     double calculateCumulativeGPA() const {
@@ -71,6 +81,23 @@ public:
              << " (" << credits << " credits, GP: " << gradePoint << ")" << endl;
     }
 
+    void addCertificate(string certificateName, int hours, string provider) {
+        if (certificateName.empty() || hours < 0 || provider.empty()) {
+            cout << "  [Error] Invalid certificate parameters for " << name << endl;
+            return;
+        }
+        if (hours < 5) {
+            certLevel = "Beginner";
+        } else if (hours < 10) {
+            certLevel = "Intermediate";
+        } else {
+            certLevel = "Advanced";
+        }
+
+        certifications.push_back({certificateName, hours, provider, certLevel});
+        cout << "Certificate alloted to " << name << " | Course Name: " << certificateName << endl;
+    }
+
     // High-level query abstraction
     double getGPA() const {
         return calculateCumulativeGPA();
@@ -102,7 +129,26 @@ public:
         cout << "----------------------------------------------" << endl;
         cout << " Cumulative GPA : " << fixed << setprecision(2) << getGPA() << " / 4.00" << endl;
         cout << " Academic Status: " << (getGPA() >= 3.5 ? "Dean's Honor List" : "Good Standing") << endl;
-        cout << "==============================================\n" << endl;
+        cout << "==============================================\n\n" << endl;
+        
+        cout << "----------------------------------------------------------------------------------------" << endl;
+        cout << "                                     CERTIFICATIONS                                     " << endl;
+        cout << "----------------------------------------------------------------------------------------" << endl;
+        cout << left << setw(25) << "Name" 
+             << setw(22) << "Duration" 
+             << setw(22) << "Provider" 
+             << setw(22) << "Level" << endl;
+        cout << "----------------------------------------------------------------------------------------" << endl;
+        
+        for (const auto& c : certifications) {
+            cout << left << setw(25) << c.courseName 
+                 << setw(22) << c.courseHours 
+                 << setw(22) << c.courseProvider 
+                 << setw(22) <<  c.courseLevel << endl;
+        }
+
+        cout << "========================================================================================\n\n" << endl;
+
     }
 };
 
@@ -127,6 +173,11 @@ int main() {
     // 4. Client computes GPA with a single call, completely abstracted from the math
     cout << "\nQueried Cumulative GPA directly: " 
          << fixed << setprecision(2) << s1.getGPA() << endl;
+
+
+    cout << "Adding certificates done by student: " << endl;
+    s1.addCertificate("Intro to C++", 9, "HCL");
+    s1.addCertificate("Full Stack", 15, "LinkedIn");
 
     // 5. Exposing clean, modular views
     s1.printTranscript();
