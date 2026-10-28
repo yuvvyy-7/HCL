@@ -26,7 +26,7 @@ protected:
     // 'protected' permits derived classes (like GraduateStudent) to access these directly,
     // while preventing external code from tampering with them.
     string name;
-    int rollNo;
+    int rollNo; 
     double marks;
 
 public:
