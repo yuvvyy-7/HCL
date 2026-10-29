@@ -114,6 +114,12 @@ int main() {
 
     cout << "Enrolled 3 students of diverse specializations into vector<Student*>.\n" << endl;
 
+    vector<Student> cohort2;
+
+    cohort2.push_back(Student("Noy", 104, 99.0));
+    cohort2.push_back(UndergradStudent("Mitya", 105, 99.8, "Cosmic Energy", 4));
+    cohort2.push_back(GraduateStudent("Eftirvit", 106, 88.0, "Celestial Sleep", "Dr. Tsaritsa"));
+ 
     // ------------------------------------------------------------------------
     // Part 2: Dynamic Dispatch at Runtime
     // ------------------------------------------------------------------------
@@ -121,6 +127,12 @@ int main() {
     for (const Student* s : cohort) {
         // C++ automatically resolves the correct display() for each object at runtime!
         s->display();
+    }
+    cout << endl;
+
+    for (const Student s : cohort2) {
+        // C++ automatically resolves the correct display() for each object at runtime!
+        s.display();
     }
     cout << endl;
 
