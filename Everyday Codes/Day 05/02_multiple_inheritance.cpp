@@ -13,7 +13,13 @@ public:
     void setRank(int r) { rank = r; }
 };
 
-class Player : public Scorable, public Rankable {   // multiple inheritance
+class Idable {
+public:
+    string id; 
+    void setId(string i) { id = i; }
+};
+
+class Player : public Scorable, public Rankable, public Idable {   // multiple inheritance
 public:
     string name;
     Player(string n) : name(n) {}
@@ -23,8 +29,9 @@ int main() {
     Player p("Asha");
     p.addScore(95);    // from Scorable
     p.setRank(1);       // from Rankable
+    p.setId("SU101");
 
-    cout << p.name << ": score=" << p.score << ", rank=" << p.rank << endl;
+    cout << "ID: " << p.id << " | name: " << p.name << ": score=" << p.score << ", rank=" << p.rank << endl;
 
     return 0;
 }
