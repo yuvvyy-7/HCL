@@ -8,10 +8,10 @@ private:
     double marks;
 public:
     Student() : name("Unassigned"), rollNo(0), marks(0.0) {
-        cout << "[Deafault Constructor] Initialized default student." << endl; 
+        cout << "[Deafault Constructor] Initialized default student." << endl;
     }
 
-    Student(string studentName, int rollNumber) : 
+    Student(string studentName, int rollNumber) :
         name(studentName), rollNo(rollNumber), marks(0.0) {
             cout << "[Parameterized Constructor [2 Params]] Created student: " << name << endl;
     }
@@ -41,6 +41,7 @@ public:
 
 int main() {
 
+
     Student student1;
     student1.display();
 
@@ -57,7 +58,7 @@ int main() {
     //using heap memory insread of stack
     Student* student5 = new Student("Megh", 3, 89);
     student5->display();
-    
+
     delete student5;
 
     //making array in heap memory

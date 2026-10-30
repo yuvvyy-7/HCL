@@ -63,6 +63,5 @@ for(Vehicle* v : vehicles) {
 }
 
 vehicles.clear();
-
 return 0;
 }
